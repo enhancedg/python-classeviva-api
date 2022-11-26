@@ -1,0 +1,4 @@
+TODO: Refactor the code
+TODO: Implement the api for teachers
+TODO: Better documentation
+TODO: Understand what card.usrType is
