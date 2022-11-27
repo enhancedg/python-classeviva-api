@@ -48,3 +48,4 @@ class classeviva_request:
         r = get(base_url + end_point, headers=headers)
         
         return r
+        

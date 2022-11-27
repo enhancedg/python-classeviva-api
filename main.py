@@ -3,10 +3,9 @@
 # Started: 25/11/2022
 #  
 
-from classeviva_request import classeviva_request as cvv_r
 import json
-from endpoints import *
 from student import Student
+from datetime import date
 
 #? TEMPORANEA
 def read_json_file(file_name: str) -> dict:
@@ -21,7 +20,10 @@ def main():
     user = Student(login_dict)
 
     print(f"Autenticato come {user.first_name} {user.last_name}!")
-    print(user.get_card())
+    
+    bacheca = user.get_noticeboard()
+
+    print(bacheca[0])
 
 if __name__ == "__main__":
     main()

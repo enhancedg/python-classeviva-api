@@ -61,6 +61,8 @@ class User:
         else:
             raise ClasseVivaException(request.json()['message'], request.status_code)
 
+        return user
+
     def get(self, uri: str) -> dict:
 
         """
