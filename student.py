@@ -66,9 +66,9 @@ class Student(User):
       @param lessons_date: date of the lessons to get
       * Returns a list of Lessons.
       * A lesson is a dictionary with these informations:
-        @attr evtId: lesson id
+        @attr evtId: event id
         @attr evtDate: lesson date expressed in YYYY-MM-DD
-        @attr evtCode: I'm not sure what it is
+        @attr evtCode: event code
         @attr evtHPos: school hour
         @attr evtDuration: duration of the lesson expressed in hour
         @attr classDesc: description of the class
@@ -125,3 +125,60 @@ class Student(User):
 
     return noticeboard['items']
     
+  def get_grades(self) -> list:
+
+    """
+      ? Get a list of current student grades
+      * Returns a list of Grades
+      * A grade is a dictionary with these informations:
+      @attr Subject: see get_subjects()
+      @attr evtCode: event code
+      @attr evtDate: grade date
+      @attr decimalValue: grade float value
+      @attr displayValue: grade displayed value
+      @attr displaPos: grade displayed position
+      @attr notesForFamily: eventual notes for family
+      @attr color: grade color (green, orange, red, blue)
+      @attr canceled: boolean value, determines if canceled
+      @attr underlined: boolean value, determines if underlined
+      @attr periodPos: period position
+      @attr periodDesc: period description
+      @attr componentPos: component position
+      @attr componentDesc: component description (Orale, Scritto/Grafico)
+      @attr weightFactor: probably determines if the grade has a weigth on the final grade
+      @attr skillId: skill id
+      @attr gradeMasterId: grade id
+      @attr skillDesc: skill description
+      @attr skillCode: skill code
+      @attr skillMasterId: skill id
+      @attr skillValueDesc: skill value description
+      @attr skillValueShortDesc: skill value short description
+      @attr oldskillId: old skill id
+      @attr oldskillDesc: old skill description
+    """
+
+    grades = self.get("grades")
+
+    return grades['grades']
+
+  def get_absences(self) -> list:
+
+    """
+      ? Get student absences
+      * Returns a list of absences
+      * Absence is a dictionary event with these informations: 
+        @attr evtId: event id
+        @attr evtCode: event code
+        @attr evtDate: Date of the absence
+        @attr evtHPos: event position
+        @attr evtValue: event value
+        @attr isJustified: boolean value, determines if justified
+        @attr justifReasonCode: justification reason code
+        @attr justifReasonDesc: justification reason description
+        @attr hoursAbsence: absence hours
+    """
+
+    absences = self.get("absences/details")
+
+    return absences['events']
+  
