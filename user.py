@@ -5,7 +5,6 @@
 from classeviva_request import classeviva_request as cvv_r
 from endpoints import *
 import re
-from exceptions.ClasseVivaException import ClasseVivaException
 
 class User:
     __attrs__ = [
@@ -56,10 +55,7 @@ class User:
         """
 
         request = cvv_r.post_json(auth_endpoint, credentials) # authentication
-        if request.status_code == 200: # Success!
-            user = request.json()
-        else:
-            raise ClasseVivaException(request.json()['message'], request.status_code)
+        user = request.json()
 
         return user
 

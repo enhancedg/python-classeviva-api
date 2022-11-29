@@ -1,3 +1,2 @@
 *.json
 __pycache__
-exceptions/__pycache__
